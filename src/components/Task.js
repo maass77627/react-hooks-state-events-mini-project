@@ -1,11 +1,19 @@
 import React from "react";
+//import { v4 as uuid } from "uuid";
 
-function Task() {
+function Task({text, category, allTasks}) {
+
+  function handleClick(e) {
+    console.log(allTasks)
+    const removedTasks = allTasks.filter((task) => (task !== e.target.parentNode))
+    console.log(e.target.parentNode)
+    console.log(removedTasks)
+  }
   return (
-    <div className="task">
-      <div className="label">CATEGORY HERE</div>
-      <div className="text">TEXT HERE</div>
-      <button className="delete">X</button>
+    <div  className="task">
+      <div className="label">{category}</div>
+      <div className="text">{text}</div>
+      <button onClick={handleClick} className="delete">X</button>
     </div>
   );
 }

@@ -1,9 +1,16 @@
 import React from "react";
+import Task from "./Task"
+//import { v4 as uuid } from "uuid";
 
-function TaskList() {
-  return (
+function TaskList({ allTasks }) {
+
+return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      
+      {allTasks.map((task, index) => { return (
+        <Task  key={index} text={task.text} category={task.category} allTasks={allTasks}/>
+      )})
+      }
     </div>
   );
 }
